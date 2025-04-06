@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rollover Image Implementation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .image-container {
+            margin: 30px 0;
+            display: inline-block;
+        }
+        p {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rollover Image Implementation</h1>
+    
+    <!-- Exercise 18: Use JavaScript to create a rollover image. Choose two images with the same size. 
+    Display one image. When the mouse passes over the image, change it to the second image. 
+    When the mouse leaves the image, change back to the original image. -->
+    
+    <div class="image-container">
+        <img id="rolloverImage" src="https://via.placeholder.com/300x200/3498db/ffffff?text=Original+Image" 
+             alt="Rollover Image" 
+             onmouseover="changeImage()" 
+             onmouseout="restoreImage()">
+    </div>
+    
+    <p>Move your mouse over the image to see the rollover effect.</p>
+    
+    <script>
+        // Store the image URLs
+        const originalImage = "https://via.placeholder.com/300x200/3498db/ffffff?text=Original+Image";
+        const rolloverImage = "https://via.placeholder.com/300x200/e74c3c/ffffff?text=Rollover+Image";
+        
+        // Function to change to the second image on mouseover
+        function changeImage() {
+            document.getElementById('rolloverImage').src = rolloverImage;
+        }
+        
+        // Function to restore the original image on mouseout
+        function restoreImage() {
+            document.getElementById('rolloverImage').src = originalImage;
+        }
+    </script>
+</body>
+</html>

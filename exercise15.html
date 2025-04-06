@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert on Button Click</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alert on Button Click</h1>
+    
+    <!-- Exercise 15: Write the XHTML tag and event handler to pop up an alert message 
+    that says "Welcome" when the user clicks a button. -->
+    
+    <button onclick="showWelcomeMessage()">Click Me</button>
+    
+    <script>
+        /**
+         * Function to display a welcome message in an alert box
+         */
+        function showWelcomeMessage() {
+            alert("Welcome");
+        }
+    </script>
+</body>
+</html>

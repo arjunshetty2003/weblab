@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert on Hover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        a:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alert on Hover</h1>
+    
+    <!-- Exercise 16: Write the XHTML tag and event handler to pop up an alert message 
+    that says "Welcome" when the user moves the mouse pointer over a link that says 
+    "Hover for a welcome message". -->
+    
+    <a href="#" onmouseover="showWelcomeMessage()">Hover for a welcome message</a>
+    
+    <script>
+        /**
+         * Function to display a welcome message in an alert box
+         */
+        function showWelcomeMessage() {
+            alert("Welcome");
+        }
+    </script>
+</body>
+</html>

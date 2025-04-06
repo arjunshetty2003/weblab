@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator and Average Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .number-list {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Number Generator and Average Calculator</h1>
+    
+    <button id="generateNumbers">Generate Random Numbers</button>
+    
+    <div id="result">
+        <p>Click the button to generate random numbers and calculate their average.</p>
+    </div>
+    
+    <script>
+        /**
+         * Exercise 13: Write a script that asks the user how many random numbers they wish
+         * to generate. The script then generates the numbers and calculates the average of
+         * the numbers and returns the results to the user.
+         */
+        
+        document.getElementById('generateNumbers').addEventListener('click', function() {
+            // Ask the user how many random numbers to generate
+            const countInput = prompt('How many random numbers do you wish to generate?');
+            
+            // If user cancels, exit the function
+            if (countInput === null) {
+                return;
+            }
+            
+            // Convert input to a number
+            const count = parseInt(countInput);
+            
+            // Validate input
+            if (isNaN(count) || count <= 0) {
+                document.getElementById('result').innerHTML = 
+                    '<p>Please enter a valid positive number.</p>';
+                return;
+            }
+            
+            // Generate random numbers (between 1 and 100)
+            const numbers = [];
+            for (let i = 0; i < count; i++) {
+                numbers.push(Math.floor(Math.random() * 100) + 1);
+            }
+            
+            // Calculate the average
+            const sum = numbers.reduce((total, num) => total + num, 0);
+            const average = sum / numbers.length;
+            
+            // Display the results
+            let resultHTML = `
+                <h3>Results:</h3>
+                <p><strong>Number of random numbers generated:</strong> ${count}</p>
+                <p class="number-list"><strong>Generated numbers:</strong> ${numbers.join(', ')}</p>
+                <p><strong>Sum:</strong> ${sum}</p>
+                <p><strong>Average:</strong> ${average.toFixed(2)}</p>
+            `;
+            
+            document.getElementById('result').innerHTML = resultHTML;
+        });
+    </script>
+</body>
+</html>

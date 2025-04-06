@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Collection and Sorting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ol {
+            background-color: #f9f9f9;
+            padding: 20px 20px 20px 40px;
+            border-radius: 5px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Name Collection and Sorting</h1>
+    
+    <button id="collectNames">Click to Enter Names</button>
+    
+    <div id="result">
+        <p>Names will appear here in alphabetical order after collection.</p>
+    </div>
+    
+    <script>
+        /**
+         * Exercise 12: Write a script that asks the user for a series of names until the user 
+         * hits the cancel button. The script then sorts the names in alphabetical order and 
+         * prints the names in an ordered list.
+         */
+        
+        document.getElementById('collectNames').addEventListener('click', function() {
+            // Array to store the names
+            const names = [];
+            
+            // Keep asking for names until the user cancels
+            while (true) {
+                const name = prompt('Enter a name (or click Cancel to finish):');
+                
+                // If user clicks Cancel, break the loop
+                if (name === null) {
+                    break;
+                }
+                
+                // If user enters a non-empty name, add it to the array
+                if (name.trim() !== '') {
+                    names.push(name.trim());
+                }
+            }
+            
+            // If no names were entered, show a message
+            if (names.length === 0) {
+                document.getElementById('result').innerHTML = '<p>No names were entered.</p>';
+                return;
+            }
+            
+            // Sort the names alphabetically (case-insensitive)
+            names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+            
+            // Create an ordered list with the sorted names
+            let resultHTML = '<p>Names in alphabetical order:</p><ol>';
+            
+            for (const name of names) {
+                resultHTML += `<li>${name}</li>`;
+            }
+            
+            resultHTML += '</ol>';
+            
+            // Display the result
+            document.getElementById('result').innerHTML = resultHTML;
+        });
+    </script>
+</body>
+</html>
